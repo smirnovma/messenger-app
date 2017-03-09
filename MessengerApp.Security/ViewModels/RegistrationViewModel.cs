@@ -80,18 +80,18 @@ namespace MessengerApp.Security.ViewModels
         {
             if (string.IsNullOrEmpty(Password))
             {
-                return "Пароль не может быть пустым";
+                return "Password can not be empty.";
             }
             else if (Password != ConfirmPassword)
             {
-                return "Пароли не совпадают";
+                return "Passwords do not match.";
             }
             return null;
         }
 
         private object ValidateLogin()
         {
-            return string.IsNullOrEmpty(Login) ? "Имя пользователя не может быть пустым" : null;
+            return string.IsNullOrEmpty(Login) ? "Username can not be empty." : null;
         }
 
         private void OnPropertyChanged(string propertyName)

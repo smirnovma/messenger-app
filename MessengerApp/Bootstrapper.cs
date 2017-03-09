@@ -25,7 +25,7 @@ namespace MessengerApp
             Application.Current.Exit += delegate { Process.GetCurrentProcess().Kill(); };
             Window window = new Window
             {
-                Title = "Введите логин и пароль",
+                Title = "Enter login and password",
                 Content = Container.Resolve<LoginWindow>(),
                 Height = 120,
                 Width = 320,

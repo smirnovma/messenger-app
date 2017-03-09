@@ -34,7 +34,7 @@ namespace MessengerApp.Security.ViewModels
         {
             Window window = new Window
             {
-                Title = "Регистрация",
+                Title = "Registration",
                 Height = 230,
                 Width = 300,
                 ResizeMode = ResizeMode.NoResize
@@ -45,12 +45,12 @@ namespace MessengerApp.Security.ViewModels
 
         private object ValidatePassword()
         {
-            return string.IsNullOrEmpty(Password) ? "Пароль не может быть пустым" : null;
+            return string.IsNullOrEmpty(Password) ? "Password can not be empty." : null;
         }
 
         private object ValidateLogin()
         {
-            return string.IsNullOrEmpty(Login) ? "Имя пользователя не может быть пустым" : null;
+            return string.IsNullOrEmpty(Login) ? "Username can not be empty." : null;
         }
 
         private void ExecuteLoginCommand()
@@ -62,7 +62,7 @@ namespace MessengerApp.Security.ViewModels
                 string token = tokenDictionary.ContainsKey("access_token") ? tokenDictionary["access_token"] : null;
                 if (token == null)
                 {
-                    throw new Exception("Не удалось авторизоваться");
+                    throw new Exception("Could not log in.");
                 }
                 securityLogic.SaveToken(token);
 
@@ -114,7 +114,7 @@ namespace MessengerApp.Security.ViewModels
         {
             Window window = new Window()
             {
-                Title = "Ошибка",
+                Title = "Error",
                 Content = text,
                 Height = 100,
                 Width = 300
