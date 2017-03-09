@@ -1,0 +1,20 @@
+﻿<UserControl x:Class="MessengerApp.Security.Views.RegistrationWindow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MessengerApp.Security.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="200" d:DesignWidth="300">
+    <Grid>
+        <StackPanel Margin="8">
+            <Label>Login:</Label>
+            <TextBox MaxWidth="250" MinWidth="150" HorizontalAlignment="Left" Text="{Binding Path=Login, UpdateSourceTrigger = PropertyChanged}"></TextBox>
+            <Label>Password:</Label>
+            <TextBox MaxWidth="250" MinWidth="150" HorizontalAlignment="Left" Text="{Binding Path=Password, UpdateSourceTrigger = PropertyChanged}"></TextBox>
+            <Label>Password confirmation:</Label>
+            <TextBox MaxWidth="250" MinWidth="150" HorizontalAlignment="Left" Text="{Binding Path=ConfirmPassword, UpdateSourceTrigger = PropertyChanged}"></TextBox>
+            <Button Margin="20" MaxWidth="120" HorizontalAlignment="Stretch" MinWidth="100" Content="Ok" Command="{Binding RegistrationCommand}"></Button>
+        </StackPanel>
+    </Grid>
+</UserControl>

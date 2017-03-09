@@ -1,0 +1,58 @@
+﻿<UserControl x:Class="MessengerApp.Chat.Views.Chat"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MessengerApp.Chat.Views"
+             xmlns:helper="clr-namespace:MessengerApp.Chat.Helper"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20*"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="2*" />
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0" Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0" Content="Users:"></Label>
+            <ListBox Grid.Row="1" ItemsSource="{Binding ListBoxUserName}" SelectedItem="{Binding SelectedUserName}">
+                <!--<ListBoxItem Background="LightGray">Смирнов Михаил</ListBoxItem>
+            <ListBoxItem>Петров Владимир</ListBoxItem>
+            <ListBoxItem Background="LightGray">Рубанов Александр</ListBoxItem>-->
+
+            </ListBox>
+        </Grid>
+        <!--<Button Grid.Column="0" Content="Левая кнопка" />-->
+        <GridSplitter Grid.Column="1" ShowsPreview="False" Width="3"
+        HorizontalAlignment="Center" VerticalAlignment="Stretch" />
+        <!--<Button Grid.Column="2" Content="Правая кнопка" />-->
+        <Grid Grid.Column="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="10*"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <ScrollViewer helper:ScrollHelper.AutoScroll="{Binding BooleanViewModelPropertyThatTriggersScroll}">
+                <TextBox Grid.Row="0" Text="{Binding ChatText}"/>
+            </ScrollViewer>
+            <GridSplitter Grid.Row="1" HorizontalAlignment="Stretch" ShowsPreview="False" Height="3"/>
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <TextBox Grid.Row="0" Text="{Binding InputChatText}"/>
+                <Button Grid.Column="1" Content="Send" Command="{Binding SendCommand}"></Button>
+            </Grid>
+        </Grid>
+        <Label Grid.Row="1" Content="{Binding CurrentUserName}" ContentStringFormat="User name: {0}"></Label>
+    </Grid>
+</UserControl>
