@@ -1,0 +1,2 @@
+# Messenger Client
+The Messenger Client is windows presentation foundation (WPF) application. The application was created in accordance with the guidelines Prism. This is a simple program for demonstrating the implementation of the messenger. Server logic is created as a Web API. You can download Web API: https://github.com/smirnovma/messenger-service. Also you have to change reference to Web API in App.config. 
