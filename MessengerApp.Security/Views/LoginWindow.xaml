@@ -19,8 +19,9 @@
         <TextBlock Grid.Row="0" Grid.Column="0" Text="Login:"></TextBlock>
         <TextBlock Grid.Row="1" Grid.Column="0" Text="Password:"></TextBlock>
         <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Path = Login, Mode=TwoWay, UpdateSourceTrigger = PropertyChanged}"></TextBox>
-        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Path = Password, Mode=TwoWay, UpdateSourceTrigger = PropertyChanged}"></TextBox>
+        <!--<TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Path = Password, Mode=TwoWay, UpdateSourceTrigger = PropertyChanged}"></TextBox>-->
+        <PasswordBox x:Name="PasswordBox" Grid.Row="1" Grid.Column="1" ></PasswordBox>
         <Button Grid.Row="2" Grid.Column="0" Content="Registration" Command="{Binding RegistrationCommand}"></Button>
-        <Button Grid.Row="2" Grid.Column="1" Content="Sign in" Command="{Binding LoginCommand}"></Button>
+        <Button Grid.Row="2" Grid.Column="1" Content="Sign in" Command="{Binding SigninCommand}" CommandParameter="{Binding ElementName=PasswordBox}" IsDefault="True"></Button>
     </Grid>
 </UserControl>

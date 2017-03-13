@@ -20,16 +20,22 @@ namespace MessengerApp.Security.ViewModels
         private string _login;
         private string _password;
 
-        public DelegateCommand LoginCommand { get; private set; }
+        public DelegateCommand<object> SigninCommand { get; private set; }
         public DelegateCommand RegistrationCommand { get; private set; }
 
 
         public LoginViewModel()
         {
-            LoginCommand = new DelegateCommand(ExecuteLoginCommand, () => ValidateLogin() == null && ValidatePassword() == null);
+            SigninCommand = new DelegateCommand<object>(ExecuteLoginCommand/*, (p) => ValidateLogin(p) == null && ValidatePassword(p) == null*/);
             RegistrationCommand = new DelegateCommand(ExecuteRegistrationCommand);
         }
-
+        private void GetPassword(object param)
+        {
+            var passwordBox = param as PasswordBox;
+            if (passwordBox == null)
+                return;
+            Password = passwordBox.Password;
+        }
         private void ExecuteRegistrationCommand()
         {
             Window window = new Window
@@ -39,24 +45,27 @@ namespace MessengerApp.Security.ViewModels
                 Width = 300,
                 ResizeMode = ResizeMode.NoResize
             };
-            window.Content = new RegistrationWindow(new RegistrationViewModel() { Window = window});
+            window.Content = new RegistrationWindow(new RegistrationViewModel() { Window = window });
             window.ShowDialog();
         }
 
-        private object ValidatePassword()
-        {
-            return string.IsNullOrEmpty(Password) ? "Password can not be empty." : null;
-        }
+        //private object ValidatePassword(object param)
+        //{
+        //    GetPassword(param);
+        //    return string.IsNullOrEmpty(Password) ? "Password can not be empty." : null;
+        //}
 
-        private object ValidateLogin()
-        {
-            return string.IsNullOrEmpty(Login) ? "Username can not be empty." : null;
-        }
+        //private object ValidateLogin(object param)
+        //{
+        //    GetPassword(param);
+        //    return string.IsNullOrEmpty(Login) ? "Username can not be empty." : null;
+        //}
 
-        private void ExecuteLoginCommand()
+        private void ExecuteLoginCommand(object param)
         {
             try
             {
+                GetPassword(param);
                 SecurityLogic securityLogic = new SecurityLogic();
                 Dictionary<string, string> tokenDictionary = securityLogic.GetTokenDictionary(Login, Password);
                 string token = tokenDictionary.ContainsKey("access_token") ? tokenDictionary["access_token"] : null;
@@ -85,7 +94,7 @@ namespace MessengerApp.Security.ViewModels
                     _login = value;
                     OnPropertyChanged("Login");
 
-                    LoginCommand.RaiseCanExecuteChanged();
+                    SigninCommand.RaiseCanExecuteChanged();
                 }
             }
         }
@@ -100,7 +109,7 @@ namespace MessengerApp.Security.ViewModels
                     _password = value;
                     OnPropertyChanged("Password");
 
-                    LoginCommand.RaiseCanExecuteChanged();
+                    SigninCommand.RaiseCanExecuteChanged();
                 }
             }
         }
