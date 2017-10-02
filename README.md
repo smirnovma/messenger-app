@@ -10,6 +10,8 @@ In this solution you can see:
 
 This application is not designed to work under high load conditions. The main objective is to study the technologies described above.
 
+![clientapp](https://user-images.githubusercontent.com/23377363/31073464-a1e4c7fc-a774-11e7-978d-3971377197a8.jpg)
+
 ![messengerapp1](https://cloud.githubusercontent.com/assets/23377363/23742674/d50a6b22-04be-11e7-9289-94dc3b9a6589.PNG)
 
 ![messengerapp2](https://cloud.githubusercontent.com/assets/23377363/23742694/eb171140-04be-11e7-9d94-7c117d76ed9a.PNG)
