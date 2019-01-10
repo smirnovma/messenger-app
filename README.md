@@ -1,7 +1,5 @@
 # Messenger Client
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/833862fa6c7945edb17870790dbf04ca)](https://app.codacy.com/app/smirnovma/messenger-app?utm_source=github.com&utm_medium=referral&utm_content=smirnovma/messenger-app&utm_campaign=Badge_Grade_Dashboard)
-
 The Messenger Client is a windows presentation foundation (WPF) application. The application was created in accordance with the guidelines Prism. This is a simple program for demonstrating the implementation of the messenger. Server logic is created as a Web API. You can download Web API: https://github.com/smirnovma/messenger-service. Also you have to change reference to Web API in App.config.
 
 In this solution you can see:
